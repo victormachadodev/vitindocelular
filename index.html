@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Configurações básicas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08060d">
+
+    <meta
+        name="description"
+        content="Vitin do Celular — celulares, acessórios e assistência técnica. Entre em contato pelo WhatsApp."
+    >
+
+    <title>Vitin do Celular | Celulares, Acessórios e Assistência</title>
+
+    <style>
+        /* ========================================
+           1. VARIÁVEIS GLOBAIS
+        ======================================== */
+
+        :root {
+            --bg: #08060d;
+            --panel: #100b19;
+            --purple: #9d35ff;
+            --violet: #6d20d8;
+            --white: #f8f5ff;
+            --muted: #bcb2c9;
+            --line: rgba(176, 94, 255, 0.3);
+
+            --radius: 20px;
+            --container-width: 1100px;
+        }
+
+        /* ========================================
+           2. RESET E ESTILOS GERAIS
+        ======================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    ellipse at 50% 0%,
+                    #241039 0%,
+                    var(--bg) 48%
+                );
+
+            color: var(--white);
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .wrap {
+            width: min(var(--container-width), 92%);
+            margin: 0 auto;
+        }
+
+        /* ========================================
+           3. CABEÇALHO E NAVEGAÇÃO
+        ======================================== */
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-weight: 850;
+            letter-spacing: 0.08em;
+        }
+
+        .brand-dot {
+            width: 11px;
+            height: 11px;
+            flex-shrink: 0;
+
+            background: var(--purple);
+            border-radius: 50%;
+            box-shadow: 0 0 18px var(--purple);
+        }
+
+        .nav {
+            display: flex;
+            gap: 26px;
+
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .nav a {
+            transition: color 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: #d8aaff;
+        }
+
+        /* ========================================
+           4. SEÇÃO PRINCIPAL
+        ======================================== */
+
+        .hero {
+            min-height: 660px;
+
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 36px;
+
+            padding: 44px 0 70px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 9px 14px;
+
+            background: #140b20;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+
+            color: #d9b3ff;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 24px 0;
+
+            font-size: clamp(2.8rem, 6vw, 5.5rem);
+            line-height: 0.98;
+            letter-spacing: -0.055em;
+        }
+
+        h1 span {
+            display: block;
+
+            color: #b85cff;
+            text-shadow: 0 0 34px rgba(157, 53, 255, 0.3);
+        }
+
+        .lead {
+            max-width: 520px;
+
+            color: var(--muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           5. BOTÕES
+        ======================================== */
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            padding: 14px 20px;
+
+            border: 1px solid var(--line);
+            border-radius: 13px;
+
+            font-weight: 750;
+
+            transition:
+                transform 0.2s ease,
+                filter 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.13);
+        }
+
+        .primary {
+            background: linear-gradient(
+                135deg,
+                #b34dff,
+                #7224dc
+            );
+
+            border-color: transparent;
+            box-shadow: 0 9px 30px #8a27dd38;
+        }
+
+        .secondary {
+            background: #120d19;
+            color: #f3e8ff;
+        }
+
+        /* ========================================
+           6. LOGO
+        ======================================== */
+
+        .logo-frame {
+            position: relative;
+            padding: 12px;
+
+            background: linear-gradient(
+                145deg,
+                #a849ff,
+                #28113d 38%,
+                #09070e 75%
+            );
+
+            border-radius: 32px;
+            box-shadow: 0 0 65px #8f27e72c;
+        }
+
+        .logo-frame::before {
+            content: "";
+
+            position: absolute;
+            inset: -1px;
+
+            border: 1px solid #c277ff75;
+            border-radius: 32px;
+
+            pointer-events: none;
+        }
+
+        .logo-frame img {
+            display: block;
+            width: 100%;
+
+            border-radius: 23px;
+        }
+
+        .glow {
+            position: absolute;
+            right: -25px;
+            bottom: -20px;
+            z-index: -1;
+
+            width: 210px;
+            height: 210px;
+
+            background: #8d22ef35;
+            filter: blur(65px);
+        }
+
+        /* ========================================
+           7. SEÇÃO DE SERVIÇOS
+        ======================================== */
+
+        .section {
+            padding: 72px 0;
+        }
+
+        .section-head {
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .section-head h2 {
+            margin-bottom: 12px;
+
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.04em;
+        }
+
+        .section-head p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            min-height: 190px;
+            padding: 26px;
+
+            background: linear-gradient(
+                145deg,
+                #171020,
+                #0d0a12
+            );
+
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+        }
+
+        .icon {
+            display: grid;
+            place-items: center;
+
+            width: 48px;
+            height: 48px;
+            margin-bottom: 20px;
+
+            background: #7f2bc526;
+            color: #d6a3ff;
+
+            border: 1px solid #9e4bda55;
+            border-radius: 14px;
+        }
+
+        .icon svg {
+            width: 25px;
+            height: 25px;
+
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .card h3 {
+            margin-bottom: 9px;
+            font-size: 1.15rem;
+        }
+
+        .card p {
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        /* ========================================
+           8. CONTATO
+        ======================================== */
+
+        .contact-panel {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+
+            padding: clamp(25px, 5vw, 48px);
+
+            background: linear-gradient(
+                120deg,
+                #1b1029,
+                #0d0913
+            );
+
+            border: 1px solid var(--line);
+            border-radius: 26px;
+        }
+
+        .contact-panel h2 {
+            margin-bottom: 10px;
+
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            letter-spacing: -0.04em;
+        }
+
+        .contact-panel p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           9. RODAPÉ
+        ======================================== */
+
+        footer {
+            padding: 28px 0 38px;
+
+            border-top: 1px solid #ffffff12;
+
+            color: #91869f;
+            font-size: 0.85rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .social {
+            color: #d7a7ff;
+        }
+
+        /* ========================================
+           10. RESPONSIVIDADE
+        ======================================== */
+
+        @media (max-width: 760px) {
+            .nav {
+                gap: 13px;
+                font-size: 0.82rem;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 34px;
+
+                min-height: auto;
+                padding-top: 25px;
+            }
+
+            .hero-copy {
+                text-align: center;
+            }
+
+            .lead {
+                margin-inline: auto;
+            }
+
+            .actions {
+                justify-content: center;
+            }
+
+            .logo-frame {
+                width: 100%;
+                max-width: 470px;
+                margin: auto;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 52px 0;
+            }
+
+            .contact-panel {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 430px) {
+            header {
+                align-items: flex-start;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 5px;
+                text-align: right;
+            }
+
+            .brand {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+
+        <!-- CABEÇALHO -->
+        <header>
+            <a class="brand" href="#inicio">
+                <span class="brand-dot" aria-hidden="true"></span>
+                VITIN DO CELULAR
+            </a>
+
+            <nav class="nav" aria-label="Navegação principal">
+                <a href="#servicos">Serviços</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </header>
+
+        <main>
+
+            <!-- SEÇÃO PRINCIPAL -->
+            <section class="hero" id="inicio">
+
+                <div class="hero-copy">
+
+                    <div class="eyebrow">
+                        <span class="brand-dot" aria-hidden="true"></span>
+                        Tecnologia no seu dia a dia
+                    </div>
+
+                    <h1>
+                        Seu celular.
+                        <span>Seu estilo.</span>
+                    </h1>
+
+                    <p class="lead">
+                        Celulares, acessórios e assistência técnica
+                        em um só lugar. Fale com a gente e encontre
+                        a solução ideal para você.
+                    </p>
+
+                    <div class="actions">
+
+                        <a
+                            class="btn primary"
+                            href="https://wa.me/5561992020107"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Falar com a Vitin do Celular pelo WhatsApp"
+                        >
+                            ✆ Falar no WhatsApp <span>↗</span>
+                        </a>
+
+                        <a
+                            class="btn secondary"
+                            href="https://www.instagram.com/vitindocelular_7/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Visitar o Instagram da Vitin do Celular"
+                        >
+                            ◎ Ver Instagram
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- LOGO DA LOJA -->
+                <div class="logo-frame">
+
+                    <img
+                        src="logo-vitin.png"
+                        alt="Logo Vitin do Celular — celulares, acessórios e assistência técnica"
+                    >
+
+                    <div class="glow" aria-hidden="true"></div>
+
+                </div>
+
+            </section>
+
+            <!-- SERVIÇOS -->
+            <section class="section" id="servicos">
+
+                <div class="section-head">
+                    <h2>Tudo para o seu celular</h2>
+
+                    <p>
+                        Atendimento direto, com praticidade
+                        e atenção ao que você precisa.
+                    </p>
+                </div>
+
+                <div class="cards">
+
+                    <!-- CELULARES -->
+                    <article class="card">
+
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="6" y="2.5" width="12" height="19" rx="2"/>
+                                <path d="M10 18.5h4"/>
+                            </svg>
+                        </div>
+
+                        <h3>Celulares</h3>
+
+                        <p>
+                            Encontre opções de celulares para
+                            acompanhar sua rotina e seu estilo.
+                        </p>
+
+                    </article>
+
+                    <!-- ACESSÓRIOS -->
+                    <article class="card">
+
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 7V3h8v4"/>
+                                <rect x="4" y="7" width="16" height="14" rx="2"/>
+                                <path d="M12 11v6m-3-3h6"/>
+                            </svg>
+                        </div>
+
+                        <h3>Acessórios</h3>
+
+                        <p>
+                            Deixe seu aparelho mais completo com
+                            acessórios para o dia a dia.
+                        </p>
+
+                    </article>
+
+                    <!-- ASSISTÊNCIA TÉCNICA -->
+                    <article class="card">
+
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14.7 6.3a4 4 0 0 0-5-5L7 4l3 3-2 2-3-3-2.7 2.7a4 4 0 0 0 5 5L17 22l5-5-7.3-7.3"/>
+                            </svg>
+                        </div>
+
+                        <h3>Assistência técnica</h3>
+
+                        <p>
+                            Precisa de ajuda com seu aparelho?
+                            Entre em contato para conversar sobre o reparo.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- CONTATO -->
+            <section class="section" id="contato">
+
+                <div class="contact-panel">
+
+                    <div>
+                        <h2>Vamos conversar?</h2>
+
+                        <p>
+                            Chame no WhatsApp para tirar dúvidas
+                            ou acompanhe as novidades no Instagram.
+                        </p>
+                    </div>
+
+                    <div class="actions">
+
+                        <a
+                            class="btn primary"
+                            href="https://wa.me/5561992020107"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            WhatsApp ↗
+                        </a>
+
+                        <a
+                            class="btn secondary"
+                            href="https://www.instagram.com/vitindocelular_7/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Instagram ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- RODAPÉ -->
+        <footer>
+            <div class="footer-inner">
+
+                <span>
+                    © <span id="year">2026</span> Vitin do Celular
+                </span>
+
+                <span class="social">
+                    Celulares • Acessórios • Assistência técnica
+                </span>
+
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Atualiza automaticamente o ano do rodapé.
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
